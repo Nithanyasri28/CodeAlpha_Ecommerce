@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Checkout</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:#f4f6fb;
+padding:40px;
+}
+
+.checkout-box{
+background:white;
+width:450px;
+margin:auto;
+padding:30px;
+border-radius:10px;
+box-shadow:0 8px 20px rgba(0,0,0,0.2);
+}
+
+input,textarea{
+width:100%;
+padding:10px;
+margin:10px 0;
+border-radius:6px;
+border:1px solid #ccc;
+}
+
+button{
+background:#28a745;
+color:white;
+border:none;
+padding:10px;
+width:100%;
+border-radius:6px;
+font-size:16px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="checkout-box">
+
+<h2>Checkout</h2>
+
+<form method="POST">
+
+{% csrf_token %}
+
+<textarea name="address" placeholder="Enter delivery address"></textarea>
+
+<input type="text" name="phone" placeholder="Phone number">
+
+<button type="submit">Place Order</button>
+
+</form>
+
+</div>
+
+</body>
+</html>

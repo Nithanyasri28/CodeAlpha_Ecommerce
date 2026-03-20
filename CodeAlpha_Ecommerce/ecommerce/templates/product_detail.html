@@ -1,0 +1,147 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>{{ product.name }}</title>
+
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+<style>
+
+body{
+font-family:Arial;
+background:#f4f6fb;
+margin:0;
+}
+
+/* NAVBAR */
+
+.navbar{
+background:linear-gradient(90deg,#667eea,#764ba2);
+padding:15px 40px;
+color:white;
+}
+
+.navbar a{
+color:white;
+text-decoration:none;
+margin-right:20px;
+font-weight:bold;
+}
+
+/* PRODUCT SECTION */
+
+.product-container{
+display:flex;
+justify-content:center;
+align-items:center;
+gap:60px;
+padding:60px;
+}
+
+/* IMAGE */
+
+.product-image img{
+width:400px;
+border-radius:10px;
+box-shadow:0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* DETAILS */
+
+.product-details{
+max-width:450px;
+}
+
+.product-details h2{
+font-size:32px;
+margin-bottom:10px;
+}
+
+.description{
+color:#555;
+margin-bottom:20px;
+}
+
+.price{
+font-size:28px;
+color:#28a745;
+margin-bottom:20px;
+}
+
+/* BUTTON */
+
+.add-btn{
+background:linear-gradient(90deg,#ff7e5f,#feb47b);
+padding:12px 25px;
+border-radius:8px;
+text-decoration:none;
+color:white;
+font-weight:bold;
+}
+
+.add-btn:hover{
+opacity:0.9;
+}
+
+.back-btn{
+display:inline-block;
+margin-top:15px;
+text-decoration:none;
+color:#667eea;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="navbar">
+
+<a href="/shop/">Shop</a>
+
+<a href="/cart/">🛒 Cart</a>
+
+<a href="/logout/">Logout</a>
+
+</div>
+
+<div class="product-container">
+
+<div class="product-image">
+
+<img src="{{ product.image.url }}">
+
+</div>
+
+<div class="product-details">
+
+<h2>{{ product.name }}</h2>
+
+<p class="description">
+{{ product.description }}
+</p>
+
+<p class="price">
+₹{{ product.price }}
+</p>
+
+<a href="/add-to-cart/{{ product.id }}/" class="add-btn">
+Add to Cart
+</a>
+
+<br>
+
+<a href="/shop/" class="back-btn">
+← Back to Shop
+</a>
+
+</div>
+
+</div>
+
+</body>
+</html>

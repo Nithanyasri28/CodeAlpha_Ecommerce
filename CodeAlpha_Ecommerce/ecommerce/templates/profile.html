@@ -1,0 +1,168 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>User Profile</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:linear-gradient(135deg,#667eea,#764ba2);
+margin:0;
+padding:0;
+}
+
+/* PROFILE CARD */
+
+.profile-container{
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+}
+
+.profile-card{
+background:white;
+padding:40px;
+border-radius:12px;
+width:420px;
+box-shadow:0 8px 25px rgba(0,0,0,0.2);
+text-align:center;
+}
+
+/* PROFILE IMAGE */
+
+.avatar{
+width:100px;
+height:100px;
+border-radius:50%;
+background:#667eea;
+color:white;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:40px;
+margin:auto;
+margin-bottom:15px;
+}
+
+/* USER INFO */
+
+.username{
+font-size:26px;
+font-weight:bold;
+margin-bottom:5px;
+}
+
+.email{
+color:#777;
+margin-bottom:15px;
+}
+
+.info-box{
+background:#f4f6fb;
+padding:10px;
+border-radius:6px;
+margin:8px 0;
+}
+
+/* BUTTONS */
+
+.btn{
+display:block;
+margin-top:10px;
+padding:10px;
+border-radius:6px;
+text-decoration:none;
+color:white;
+font-weight:bold;
+}
+
+.cart-btn{
+background:#28a745;
+}
+
+.shop-btn{
+background:#667eea;
+}
+
+.logout-btn{
+background:#dc3545;
+}
+
+.orders-btn{
+display:inline-block;
+margin-top:15px;
+padding:10px 20px;
+background:#4CAF50;
+color:white;
+text-decoration:none;
+border-radius:6px;
+font-weight:bold;
+}
+
+.orders-btn:hover{
+background:#388E3C;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="profile-container">
+
+<div class="profile-card">
+
+<div class="avatar">
+{{ user.username|first|upper }}
+</div>
+
+<div class="username">
+{{ user.username }}
+</div>
+
+<div class="email">
+{{ user.email }}
+</div>
+
+<div class="info-box">
+📅 Joined: {{ user.date_joined }}
+</div>
+
+<div class="profile-actions">
+
+<a href="{% url 'my_orders' %}" class="orders-btn">
+📦 My Orders
+</a>
+</div>
+
+
+<div class="info-box">
+🛒 Cart Items: {{ cart_count }}
+</div>
+
+<a href="/cart/" class="btn cart-btn">
+View Cart
+</a>
+
+
+<a href="/shop/" class="btn shop-btn">
+Continue Shopping
+</a>
+
+<a href="/logout/" class="btn logout-btn">
+Logout
+</a>
+
+</div>
+
+</div>
+
+</body>
+</html>
+

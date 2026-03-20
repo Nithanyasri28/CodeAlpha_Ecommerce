@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>My Orders</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:#f4f6fb;
+padding:40px;
+}
+
+.order-card{
+background:white;
+padding:20px;
+margin-bottom:20px;
+border-radius:10px;
+box-shadow:0 6px 15px rgba(0,0,0,0.1);
+}
+
+.status{
+font-weight:bold;
+}
+
+.processing{color:orange;}
+.shipped{color:blue;}
+.delivered{color:green;}
+
+</style>
+
+</head>
+
+<body>
+
+<h2>My Orders</h2>
+
+{% for order in orders %}
+
+<div class="order-card">
+
+<p><b>Order ID:</b> {{ order.id }}</p>
+
+<p><b>Date:</b> {{ order.created_at }}</p>
+
+<p><b>Status:</b>
+<span class="status">
+{{ order.status }}
+</span>
+</p>
+
+</div>
+
+{% endfor %}
+
+</body>
+</html>

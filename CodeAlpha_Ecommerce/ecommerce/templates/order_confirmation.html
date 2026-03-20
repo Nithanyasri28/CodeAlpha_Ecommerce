@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Order Confirmation</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:#f4f6fb;
+text-align:center;
+padding:80px;
+}
+
+.box{
+background:white;
+padding:40px;
+width:400px;
+margin:auto;
+border-radius:10px;
+box-shadow:0 8px 20px rgba(0,0,0,0.2);
+}
+
+.status{
+color:orange;
+font-weight:bold;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="box">
+
+<h2>✅ Order Placed Successfully</h2>
+
+<p>Order ID: <b>#{{ order.id }}</b></p>
+
+<p>Status: <span class="status">{{ order.status }}</span></p>
+
+<p>Your order will be delivered soon.</p>
+
+<a href="/my-orders/">View My Orders</a>
+
+</div>
+
+</body>
+</html>
